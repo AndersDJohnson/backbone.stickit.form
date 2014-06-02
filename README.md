@@ -1,4 +1,65 @@
 backbone.stickit.form
 =====================
 
-Automate form bindings for backbone.stickit
+Automate form bindings for [backbone.stickit][stickit].
+
+Simple, but keeps your binding declarations DRY.
+
+## Install
+
+```sh
+$ bower install --save backbone.stickit.form
+```
+
+Include `src/backbone.stickit.form.js` in your code.
+
+## Use
+
+To build `bindings` for your View, use `BackboneStickitForm.getBindings` as follows:
+
+```js
+var MyFormView = Backbone.View.extend({
+  bindings: BackboneStickitForm.getBindings({
+    attributes: ['username', 'email', 'country', 'age']
+  })
+});
+```
+
+Advanced usage demonstrating more options:
+
+```js
+var MyFormView = Backbone.View.extend({
+  bindings: BackboneStickitForm.getBindings({
+    /**
+     * Required. List the model attributes to bind here
+     */
+    attributes: ['username', 'email', 'country', 'age'],
+    /**
+     * Optional. If attributes require extra stickit options, these will extend generated bindings.
+     */
+    extend: {
+      'country': {
+        selectOptions: {
+          collection: ['Norway', 'Sweden', 'Denmark', 'Finland', 'Iceland']
+        },
+      },
+      'age': {
+        events: ['change'],
+        onSet: function(val) {
+          return parseInt(val, 10) || undefined;
+        }
+      }
+    },
+    /**
+     * Optional. Function to build selector for given model attribute. Uses name attributes by default.
+     * `function (attribute, options)`
+     */
+    selector: function (attribute, options) {
+      return '[data-stickit-attr="' + attribute + '"]';
+    }
+  }
+}); 
+```
+
+[stickit]: http://nytimes.github.io/backbone.stickit/
+
