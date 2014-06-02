@@ -19,9 +19,8 @@ To build `bindings` for your View, use `BackboneStickitForm.getBindings` as foll
 
 ```js
 var MyFormView = Backbone.View.extend({
-  bindings: BackboneStickitForm.getBindings({
-    attributes: ['username', 'email', 'country', 'age']
-  })
+  // pass attributes to bind
+  bindings: BackboneStickitForm.getBindings(['username', 'email', 'country', 'age'])
 });
 ```
 
@@ -31,7 +30,7 @@ Advanced usage demonstrating more options:
 var MyFormView = Backbone.View.extend({
   bindings: BackboneStickitForm.getBindings({
     /**
-     * Required. List the model attributes to bind here
+     * Required. List the model attributes to bind here.
      */
     attributes: ['username', 'email', 'country', 'age'],
     /**
