@@ -24,6 +24,18 @@ var MyFormView = Backbone.View.extend({
 });
 ```
 
+This will map to HTML using `name` attributes corresponding to model attributes.
+
+```html
+<form>
+ <input name="username" type="text" />
+ <input name="email" type="text" />
+ <input name="age" type="number" />
+ <select name="country"></select>
+</form>
+```
+
+
 Advanced usage demonstrating more options:
 
 ```js
