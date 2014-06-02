@@ -43,6 +43,12 @@ var MyFormView = Backbone.View.extend({
        */
       attributes: ['username', 'email', 'country', 'age'],
       /**
+       * Optional. Defaults options for each binding.
+       */
+      defaults: {
+        validate: true
+      },
+      /**
        * Optional. If attributes require extra stickit options, these will extend generated bindings.
        */
       extend: {
