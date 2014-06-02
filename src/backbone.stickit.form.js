@@ -26,6 +26,7 @@
 
     var defaultOptions = {
       extend: {},
+      defaults: {},
       attributes: [],
       selector: function (attribute, options) {
         return '[name="' + attribute + '"]';
@@ -39,11 +40,9 @@
     _.each(options.attributes, function (attribute) {
       var selector = options.selector(attribute, options);
       var binding = {
-        observe: attribute,
-        setOptions: {
-          validate: true
-        }
+        observe: attribute
       };
+      _.extend(binding, options.defaults);
       var extend = options.extend[attribute];
       if (extend) {
         _.extend(binding, extend);
