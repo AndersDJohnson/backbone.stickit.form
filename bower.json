@@ -1,0 +1,19 @@
+{
+  "name": "backbone.stickit.form",
+  "main": "src/backbone.stickit.form.js",
+  "version": "0.1.0",
+  "authors": [
+    "Anders D. Johnson"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "backbone.stickit": "~0.8.0"
+  }
+}
