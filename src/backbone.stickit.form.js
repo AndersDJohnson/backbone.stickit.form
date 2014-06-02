@@ -16,13 +16,18 @@
   var exports = {};
 
 
-  exports.getBindings = function (view, options) {
+  exports.getBindings = function (options) {
+
+    if (_.isArray(options)) {
+      options = {
+        attributes: options
+      };
+    }
 
     var defaultOptions = {
-      model: view.model,
       extend: {},
       attributes: [],
-      selector: function (attribute, view, options) {
+      selector: function (attribute, options) {
         return '[name="' + attribute + '"]';
       }
     };
@@ -32,7 +37,7 @@
     var bindings = {};
 
     _.each(options.attributes, function (attribute) {
-      var selector = options.selector(attribute, view, options);
+      var selector = options.selector(attribute, options);
       var binding = {
         observe: attribute,
         setOptions: {
