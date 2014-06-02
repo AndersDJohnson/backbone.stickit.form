@@ -58,6 +58,10 @@ var MyFormView = Backbone.View.extend({
           selectOptions: {
             collection: ['Norway', 'Sweden', 'Denmark', 'Finland', 'Iceland']
           },
+          setOptions: {
+            validate: false,
+            silent: true
+          }
         },
         'age': {
           events: ['change'],
